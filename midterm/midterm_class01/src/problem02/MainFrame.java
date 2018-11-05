@@ -95,11 +95,6 @@ public class MainFrame extends JFrame {
 		
 		JPanel jp2 = new JPanel();
 		jp2.setLayout(new BorderLayout(10, 10));
-//		JPanel jp21 = new JPanel();
-//		jp21.setLayout(new GridLayout(1, 3, 3, 3));
-//		jp21.add(new JLabel());
-//		jp21.add(jbCompare);
-//		jp21.add(jbAnswer);
 		jp2.add(jbCompare, BorderLayout.NORTH);
 		jp2.add(jta, BorderLayout.CENTER);
 		
@@ -144,27 +139,21 @@ public class MainFrame extends JFrame {
 			int leftOrRight = compare();
 			jta.append(dlmToStr());
 			switch(leftOrRight) {
-			case 1:
-				jta.append(" -> 왼쪽이 무겁습니다.\r\n");
-				break;
 			case 0:
 				jta.append(" -> 무게가 같습니다.\r\n");
 				break;
+			case 1:
+				jta.append(" -> 왼쪽이 무겁습니다.\r\n");
+				if(dlmLeft.size() == 1 && dlmLeft.getElementAt(0).equals(answerBall))
+					jta.append("정답은 " + answerBall + " 입니다!\r\n");
+				break;
 			case -1:
 				jta.append(" -> 오른쪽이 무겁습니다.\r\n");
+				if(dlmRight.size() == 1 && dlmRight.getElementAt(0).equals(answerBall))
+					jta.append("정답은 " + answerBall + " 입니다!\r\n");
 				break;
 			}
 		});
-		
-//		jbAnswer.addActionListener((ActionEvent ae) -> {
-//			if (jlistBasket.getSelectedIndex() < 0)
-//				return;
-//			String selected = jlistBasket.getSelectedValue();
-//			if(selected.equals(answerBall))
-//				jta.append(selected + " -> 정답입니다!\r\n");
-//			else
-//				jta.append(selected + " -> 오답입니다!\r\n");
-//		});
 	}
 	
 	private String dlmToStr() {

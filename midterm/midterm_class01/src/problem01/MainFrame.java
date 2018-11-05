@@ -47,7 +47,7 @@ public class MainFrame extends JFrame {
 		jl.setText("<°ú¸ñº° Æò±Õ>");
 	}
 	
-	protected void addComps(){
+	protected void addComps() {
 		JPanel jp1 = new JPanel();
 		jp1.setLayout(new BorderLayout());
 		
